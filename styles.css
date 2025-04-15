@@ -1219,28 +1219,36 @@ ul li ul.dropdown li {
 }
 
 .about-container {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 40px;
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 10px;
     color: #000;
     border-radius: 2px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     text-align: center;
+
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-around; /* Distribute vertical space evenly */
+    align-items: stretch; /* Make children take full width */
+    min-height: 300px;
 }
 
 
 #about-h2 {
-    font-size: 28px;
+    font-size: 18px;
     color: #f8b400;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 15px;
-    position: relative;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    /* position: relative; */
 }
  
 #about-p {
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 0;
     color: #000;
     padding: 0 20px;
 }
@@ -1249,12 +1257,13 @@ ul li ul.dropdown li {
     .about-container {
         padding: 15px;
         margin: 15px auto;
+        min-height: auto;
     }
 
     #about-h2 {
         font-size: 1.6em;
-        margin-top: 15px;
-        margin-bottom: 8px;
+        /* margin-top: 15px;
+        margin-bottom: 8px; */
     }
 
     #about-p {
