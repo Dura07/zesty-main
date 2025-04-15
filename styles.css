@@ -1209,27 +1209,14 @@ ul li ul.dropdown li {
 
 /* ABOUT PAGE STYLING */
 
-
 .about-section {
+    padding: 40px 20px; 
+    margin: 20px 0; 
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    padding: 60px 10%;
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; 
 }
-
-
-/* Both divs take equal space */
-.about-container,
-.image-container {
-    flex: 1;
-    max-width: 50%;
-    padding: 30px;
-    border-radius: 2px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-}
-
 
 .about-container {
     max-width: 900px;
@@ -1250,92 +1237,29 @@ ul li ul.dropdown li {
     margin-bottom: 15px;
     position: relative;
 }
-
-
-
-/* Adding a decorative underline */
-#about-h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(45deg, #ff6b6b, #f8e71c);
-    margin: 10px auto 0;
-    border-radius: 2px;
-  }
-  
-  /* Styling the mission paragraph */
-  #about-p {
+ 
+#about-p {
     font-size: 16px;
     line-height: 1.8;
     color: #000;
     padding: 0 20px;
 }
 
-
-.about-container p:last-of-type {
-    margin-bottom: 0;
-}
-/* Styling the Image */
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* .image-container img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 12px;
-    object-fit: cover;
-} */
-
-/* Responsive Design */
-@media (max-width: 900px) {
-    .about-section {
-        flex-direction: column;
-        text-align: center;
+@media (max-width: 480px) {
+    .about-container {
+        padding: 15px;
+        margin: 15px auto;
     }
 
-    .about-container, 
-    .image-container {
-        max-width: 100%;
+    #about-h2 {
+        font-size: 1.6em;
+        margin-top: 15px;
+        margin-bottom: 8px;
     }
-}
 
-
-/* Ensure the about-section is spaced well and does not overlap with other sections */
-.about-section {
-    padding: 40px 20px; /* Top/bottom and side padding */
-    margin: 20px 0; /* Vertical margin for separation */
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px; /* Space between the two divs */
-}
-
-/* Default styling for the two child divs */
-.about-container,
-.about-slider-container {
-    flex: 1 1 45%; /* Each takes up roughly 45% on larger screens */
-    box-sizing: border-box;
-}
-
-/* For smaller screens, stack the divs vertically */
-@media (max-width: 768px) {
-    .about-section {
-        flex-direction: column;
-        align-items: center;
-    }
-    .about-container,
-    .about-slider-container {
-        flex: none;
-        width: 100%;
-        max-width: 600px; /* Optional: cap width for readability */
+    #about-p {
+        font-size: 0.95em;
+        line-height: 1.5;
     }
 }
 
@@ -1346,58 +1270,10 @@ ul li ul.dropdown li {
 
 
 
-/* Slider Container */
-.about-slider-container {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    height: 400px; /* Set a fixed height */
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;  /* Center container horizontally */
-}
-
-/* Slider */
-.about-slider {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
 
 
-/* Keyframes for a smooth slide/fade with a zoom effect */
-@keyframes slideFade {
-    0% {
-        opacity: 0;
-        transform: scale(0.9) translateX(50px);
-    }
-    20% {
-        opacity: 1;
-        transform: scale(1) translateX(0);
-    }
-    80% {
-        opacity: 1;
-        transform: scale(1) translateX(0);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1.1) translateX(-50px);
-    }
-}
 
-.slide {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover; /* Crop images to maintain aspect ratio */
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
 
-.slide.active {
-    animation: slideFade 3s ease-in-out forwards;
-}
 
 
 /* Event page */
