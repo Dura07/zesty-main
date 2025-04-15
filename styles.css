@@ -1211,14 +1211,14 @@ ul li ul.dropdown li {
 
 .about-section {
     padding: 10px 1px; 
-    margin: 7px 0; 
+    margin: 27px 0; 
     
 }
 
 .about-container {
     color: #000;
     text-align: center;
-    margin: 5px 1px;
+    margin: 25px 1px;
 
 }
 
@@ -1237,7 +1237,7 @@ ul li ul.dropdown li {
     font-size: 14px;
     line-height: 1.5;
     margin-top: 0;
-    color: #000;
+    color: #050404;
 
 }
 
