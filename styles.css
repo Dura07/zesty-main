@@ -1212,16 +1212,13 @@ ul li ul.dropdown li {
 .about-section {
     padding: 10px 1px; 
     margin: 2px 0; 
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-between; */
-    /* gap: 20px;  */
+    
+    
 }
 
 .about-container {
     max-width: 100%;
-    margin: 10px auto;
-    padding: 10px;
+    
     color: #000;
     text-align: center;
 
@@ -1235,7 +1232,7 @@ ul li ul.dropdown li {
     letter-spacing: 1px;
     margin-bottom: 1px;
     margin-top: 1px;
-    /* position: relative; */
+ 
 }
  
 #about-p {
@@ -1248,8 +1245,8 @@ ul li ul.dropdown li {
 
 @media (max-width: 480px) {
     .about-container {
-        padding: 5px;
-        margin: 5px auto;
+        padding: 1px;
+        margin: 1px auto;
         min-height: auto;
     }
 
