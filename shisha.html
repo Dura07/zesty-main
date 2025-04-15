@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zest Lounge and Bar - Shisha</title>
+    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script> 
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/purple_logo.png">
+</head>
+<body>
+ <!-- Creative Loader -->
+ <div id="loader">
+    <img src="images/purple_logo.png" alt="">
+  </div>
+  
+  <section class="body-eatery">
+
+    <header class="header">
+        <a href="index.html" class="brand-logo"><img src="images/purple_logo.png" alt="Brand Logo"></a>    
+    </header>
+
+<!-- Mobile Menu Button -->
+    <button class="menu-btn" id="menu-btn">
+    <svg height="32px" fill="#ffffff" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  
+        s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  
+        S29.104,22,28,22z"/>
+    </svg>
+    </button>
+
+    <nav>
+        <ul>
+            <li><a href="Events.html">Events</a></li>
+
+        <li>
+            <button class="dropdown-btn" onclick="toggleDropdown('menu-dropdown')">
+                Menu
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                    <path d="M480-360 280-560h400L480-360Z"/>
+                </svg>
+            </button>
+            <ul class="dropdown" id="menu-dropdown">
+                <li><a href="menu.html">Full Menu</a></li>
+                <li><a href="grill.html">Grill</a></li>
+                <li><a href="shawarma.html">Shawarma</a></li>
+                <li><a href="Local-dish.html">Main Dish</a></li>
+                <li><a href="Finger Foods.html">Finger Foods</a></li>
+                <li><a href="pepper soup.html">Pepper Soup</a></li>
+            </ul>
+        </li>
+
+        <li><a href="gallery.html">Gallery</a></li>
+
+        <li>
+            <button class="dropdown-btn" onclick="toggleDropdown('bottles-dropdown')">
+                Bottles
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                    <path d="M480-360 280-560h400L480-360Z"/>
+                </svg>
+            </button>
+            <ul class="dropdown" id="bottles-dropdown">
+              <li><a href="beer.html">Beers</a></li>
+              <li><a href="spirit.html">Spirits/Liquor</a></li>
+              <li><a href="wines.html">Wines</a></li>
+              <li><a href="energy.html">Energy Drinks</a></li>
+              <li><a href="bitters.html">Bitters</a></li>
+              <li><a href="non-alcoholics.html">Non Alcoholic</a></li>
+            </ul>
+        </li>
+
+        <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+  <div class="rec-box">
+     <h3>Shisha.</h3>
+  </div>
+</section>
+
+
+    <section class="menu">
+
+        <div class="menu-post">
+          <img src="images/complaint.JPG" alt="Featured Post">
+        </div>
+        <div class="menu-post">
+          <img src="images/NO SMOKING.JPG" alt="Featured Post">
+        </div>
+        <div class="menu-post">
+            <img src="images/complaint.JPG" alt="Featured Post">
+          </div>
+
+
+                <!-- Price Posts Container -->
+        <div class="price-container">
+            <div class="price-post">
+                <h3>Shisha (one pipe)</h3>
+                <p>#6,000</p>
+            </div>
+            <div class="price-post">
+                <h3>Shisha (two pipes)</h3>
+                <p>#15,000</p>
+            </div>
+            
+          
+    
+      </section>
+
+
+
+
+    
+          <!-- Back to Top Button -->
+          <button id="backToTop" class="back-to-top">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>
+          </button>
+
+
+
+
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="footer-container">
+            <a href="index.html">
+                <img src="images/purple_logo.png">
+            </a>
+            <p id="footer-p">&copy; <span id="currentYear"></span> Zest Lounge and Bar. All rights reserved.</p>
+
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+      
+
+
+
+    <script src="js/scripts.js"></script>
+
+
+
+    
+
+</body>
+</html>

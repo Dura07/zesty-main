@@ -1,0 +1,1522 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Loader Overlay */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensures it stays on top */
+}
+
+#loader img {
+    width: 100px;
+    height: 100px;
+    animation: fadeScale 1.5s infinite ease-in-out;
+}
+
+/* Keyframes for animation */
+@keyframes fadeScale {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.6; }
+}
+
+/* Hide content initially */
+#content {
+    display: none;
+}
+
+
+.header {
+    position: fixed;  /* Stays at the top as users scroll */
+    top: 0;
+    left: 0;
+    width: 100%;  /* Makes the background span the entire width */
+    background: rgba(0, 0, 0, 0); /* Fully transparent at the top */
+    padding: 10px 20px;  /* Adds space inside the header */
+    z-index: 1000;  /* Keeps it above other elements */
+    display: flex;
+    align-items: center;
+    height: 88px; /* Adjust the header height */
+    transition: background 0.5s ease-in-out;
+}
+
+
+.header.scrolled {
+    background: linear-gradient(to right, rgba(255, 255, 255), rgb(179, 3, 179));
+    box-shadow: rgba(31, 29, 29, 0.5);
+}
+
+.body-eatery {
+    height: 100vh;
+    background-image: url(images/janko-ferlic-nVPfPXc3eis-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;           /* Use Flexbox for alignment */
+    align-items: stretch;
+    
+
+}
+.rec-box {
+    width: 55%;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000; /* White text */
+    font-size: 24px;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.8); /* Initial glow */
+    transition: 0.3s ease-in-out;
+    animation: glow 1.5s infinite alternate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Pushes content down */
+    
+}
+
+/* Glowing Animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 165, 0, 1), 0 0 40px rgba(255, 165, 0, 0.8);
+    }
+}
+
+.rec-box h3 {
+    margin: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    animation: textGlow 1.5s infinite alternate;
+}
+
+/* Text Glow Effect */
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 165, 0, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 165, 0, 1);
+    }
+}
+
+
+
+p {
+    color: #4B0082;
+    font-size: .8rem;
+    text-align: left;
+    font-weight: 600;
+    margin: 0 20px 20px;
+    line-height: 1.8;
+
+}
+
+nav {
+    width: 100%;
+    position: fixed; /* Keeps it at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-end; /* Align everything to the right */
+    
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    width: auto;
+}
+
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+    margin-right: 15px;
+    text-align: center;
+    
+}
+
+
+nav ul li a,
+nav ul li button {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    gap: 3px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+}
+
+nav ul li button svg {
+    width: 20px; 
+    height: 20px;
+}
+
+nav ul li a svg {
+    width: 20px; 
+    height: 20px;
+}
+
+
+
+
+/*Dropdown Menu*/
+.dropdown {
+    width: 150px;
+    background: rgba(1, 1, 2, 0.9);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    z-index: 1000;
+    display: none;
+    border-radius: 3px;
+    list-style: none;
+    padding: 10px 0;
+    min-width: 180px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+   
+
+}
+
+.dropdown.show {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Dropdown items */
+.dropdown li {
+    padding: 10px;
+}
+
+.dropdown li a {
+    color: #fff;
+    text-transform: capitalize;
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+ul li ul.dropdown li {
+    display: block;
+    padding: 10px;
+
+}
+
+.dropdown li a:hover {
+    color: #4B0082;
+}
+
+
+.menu-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1100;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    height: 32px;
+    width: 32px;
+    
+}
+
+
+
+
+/* Large screen adjustments */
+@media screen and (min-width: 1024px) { 
+    .brand-logo {
+        position: absolute; 
+        top: 10px;        
+        left: 20px;      
+        transform: translateY(-10%);
+    }
+
+    .brand-logo img {
+        height: 90px; 
+        width: auto;
+    }
+
+    ul li a, nav ul li button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        gap: 2px;
+        white-space: nowrap;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+    }
+    
+    /* Add a subtle background effect on hover */
+    ul li a:hover, ul li button:hover {
+        /* color: #4B0082; */
+        transition: all 0.3s ease-in-out;
+    }
+    
+    /* Underline effect with animation */
+    ul li a::after, nav ul li button::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: #4B0082;
+        transition: all 0.4s ease-in-out;
+        transform: translateX(-50%);
+    }
+    
+    /* Expand underline on hover */
+    ul li a:hover::after, nav ul li button:hover::after {
+        width: 100%;
+    }
+
+  
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    .body-eatery {
+        height: 70vh;
+        background-image: url(images/janko-ferlic-nVPfPXc3eis-unsplash.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;           /* Use Flexbox for alignment */
+        align-items: stretch;
+        
+    
+    }
+
+    .body-wines {
+        height: 70vh;
+        background-image: url(images/glass.jpeg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;           /* Use Flexbox for alignment */
+        align-items: stretch;
+        
+    
+    }
+
+
+    .menu-btn {
+        display: block;
+        position: fixed;
+        top: 15px;
+        right: 50px;
+        z-index: 1100;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        
+    }
+
+    /* Menu container (hidden by default) */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        align-items: center;
+        position: fixed;
+        top: 12%;
+        left: 62%;
+        transform: translateX(-50%);
+        width: 70%; /* Adjust width so it doesn’t take the full screen */
+        max-width: 320px;
+        background: #0f0404;
+        box-shadow: 0px 4px 6px rgba(94, 7, 89, 0.9);
+        padding-top: 20px;
+        display: none; 
+        border-radius: 10px;
+        
+    }
+
+    
+
+    /* When menu is active */
+    ul.active {
+        display: flex;
+    }
+
+    ul li {
+        /* display: block; */
+        text-align: center;
+        width: 100%;
+        position: relative; 
+    }
+
+   
+
+    ul li a,
+    ul li button {
+        padding: 15px;
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+        
+         
+    }
+
+    /* Dropdown menu - fixed width and better alignment */
+    ul li ul.dropdown {
+        position: absolute;
+        top: 70%;
+        left: 71%;
+        transform: translateX(-50%);
+        width: auto;
+        min-width: 200px;
+        max-width: 300px;
+        background: #fff;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
+        display: none;
+        z-index: 1000;
+        border-radius: 8px;
+       
+    }
+
+
+    .dropdown {
+        /* position: relative; */
+        width: 100%;
+    }
+
+
+    ul li ul.dropdown li a {
+        padding: 3px;
+        font-size: 1.1rem;
+        color: #000;
+        display: block;
+        text-align: left;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    
+
+    ul li a:hover, nav ul li button:hover {
+        color: #8A2BE2;
+    }
+
+    ul li ul.dropdown li a:hover {
+        color: #4B0082;
+    }
+
+    
+
+    .brand-logo img {
+        width: 85px;  /* Adjust size */
+        height: auto;
+        padding: 0;  
+        margin: 0;    
+    }
+
+    
+}
+
+
+/* Hero section Styling */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+} 
+
+
+.fade-slider-container {
+    width: 95%;
+    max-width: 1300px; /* Increased for bigger displays */
+    margin: 40px auto;
+    padding: 60px;
+    border-radius: 2px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center; /* Centers slider horizontally */
+    align-items: center;     /* Centers slider vertically */
+    text-align: center;
+    /* position: relative; */
+}
+
+
+.fade-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fade-slider img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    border-left: 5px dotted red;
+    border-top: 5px dotted red;
+    animation: fade 9s infinite;
+    border-radius: 8px;
+}
+
+.fade-slider img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.fade-slider img:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.fade-slider img:nth-child(3) {
+    animation-delay: 6s;
+}
+
+.fade-slider img:nth-child(4) {
+    animation-delay: 9s;
+}
+
+.fade-slider img:nth-child(5) {
+    animation-delay: 12s;
+}
+
+
+@keyframes fade {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    30% { opacity: 1; }
+    40% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.fade-slider img {
+    width: 350px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    object-fit: cover; /* Ensures images fill the box without distortion */
+    border-radius: 1px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .fade-slider {
+        /* padding: 30px;
+        margin: 20px auto; */
+        flex-direction: column; /* Stack images vertically */
+        align-items: center; /* Center images horizontally */
+    }
+
+    .fade-slider img {
+        width: 100%; /* Full width for small screens */
+        max-width: 450px; /* Prevents excessive image scaling */
+        height: 450px;
+        
+    }
+}
+
+@media (max-width: 480px) {
+    .fade-slider-container {
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    .fade-slider img {
+        border-left-width: 2px;
+        border-top-width: 2px;
+    }
+}
+
+
+
+
+/* Word Container */
+.word-container {
+    text-align: center;
+    max-width: 700px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); */
+}
+
+
+.word-container h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.word-container p {
+    color: #4B0082;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 10px;
+    
+}
+
+.word-container h2 {
+    font-size: 2rem;
+    color: #d1b228;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.word-container h6 {
+    color: #000;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+
+/* Responsive for large screens */
+@media (min-width: 768px) {
+    .hero {
+        flex-direction: row;
+    }
+    .word-container {
+        text-align: left;
+    }
+
+    .slider {
+        width: 100%; /* Full width on smaller screens */
+        margin: 0; /* Remove margin on smaller screens */
+    }
+}
+
+
+
+
+
+
+/* Services Section */
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    background-color: #f8f9fa;
+    
+
+}
+
+.services-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+    width: 100%; /* Make sure it spans full width */
+}
+
+ h4 {
+    border-top: 5px dotted #e74c3c;
+    border-left: 5px dotted #e74c3c;
+    font-size: 25px;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Service Boxes */
+.service-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    height: 280px;
+    max-width: 500px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.service-box {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+
+.service-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.service-box:hover::before {
+    border-color: #4B0082;
+}
+
+
+
+
+/* Heading (h3) Styling */
+.service-box h3 {
+    font-size: 1.5rem; 
+    color: #4B0082; 
+    margin-bottom: 10px; /* Spacing below heading */
+    font-weight: 600; 
+}
+
+/* Paragraph (p) Styling */
+.service-box p {
+    font-size: 1rem; 
+    color: #000; 
+    line-height: 1.5;
+    margin: 0 10px; /* Adds spacing inside */
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+    .services {
+        justify-content: space-between;
+    }
+
+    .service-box {
+        width: calc(50% - 20px); /* Two per row on tablets */
+    }
+}
+
+@media (min-width: 1024px) {
+    .service-box {
+        width: calc(33.33% - 20px); /* Three per row on large screens */
+    }
+}
+
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4B0082;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Show button when scrolling */
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Hover effect */
+.back-to-top:hover {
+    background: #8A2BE2;
+}
+
+
+/* Featured Post Container */
+.featured-post {
+    flex: 1;
+    min-width: 300px; /* Ensures stacking on smaller screens */
+    max-width: 30%; /* Ensures side-by-side layout on large screens */
+    padding: 15px;
+    background: #f4f4f4; 
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    font-weight: bold;
+    overflow: hidden;
+}
+  
+  
+  /* Image Styling */
+.featured-post img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .featured-post.red img {
+    border: 2px dashed #e74c3c;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .featured-post.red:hover img {
+    transform: scale(1.05);
+    border-color: #ff8c42;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.5);
+  }
+  
+
+
+  /* MENU page */
+
+  .menu {
+    display: flex;
+    flex-direction: wrap; /* Vertical stacking by default for large screens */
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;      /* Generous spacing around the section */
+    background-color: #f9f9f9; /* Optional background for visual separation */
+}
+
+
+  
+  
+.complaint-post-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.complaint-post {
+    margin-right: 20px; 
+    margin-bottom: 20px;
+    width: calc(29% - 20px);
+    
+}
+
+.complaint-post:last-child {
+    margin-right: 0;
+}
+
+.complaint-post img {
+    display: block; 
+    max-width: 400px; 
+    height: auto;
+    margin: 0 auto; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+/* Media query for mobile view (adjust max-width as needed) */
+@media (max-width: 768px) {
+    .complaint-post-container {
+        flex-direction: column; 
+    }
+
+    .complaint-post {
+        margin-right: 0; 
+        width: 100%; 
+    }
+}
+
+  
+
+
+  
+.menu-post {
+    flex: 1 1 300px; /* Each image container takes up equal space */
+    max-width: 30%; /* Allows 3 images in a row on large screens */
+}
+  
+  /* menu Post Container */
+  .menu-post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;           /* Inner padding for the image to not cover the div completely */
+    margin: 20px auto;       /* Space between each card and centered horizontally */
+    max-width: 400px;        /* Consistent width for the cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;        /* Prevent any hover effects from overflowing */
+  }
+
+  /* Headings within menu posts */
+.menu-post h3 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  /* Image Styling */
+  .menu-post img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: contain;
+  }
+  
+  
+  /* Special Styling for the Third Card */
+  .menu-post.red img {
+    border: 2px solid #e74c3c;
+    border-radius: 8px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .menu-post.red:hover img {
+    transform: scale(1.05);
+    border-color: #ff8c42;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.5);
+  }
+
+  /* Responsive layout for larger screens */
+@media screen and (min-width: 768px) {
+    .menu {
+      flex-direction: row;   /* Switch to horizontal alignment */
+      flex-wrap: wrap;       /* Allow wrapping to new rows if necessary */
+      justify-content: space-around; /* Distribute cards evenly */
+    }
+}
+
+/* Responsive Design - Stack images in column on small screens */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+   
+}
+
+/* food-post */
+
+.body-finger-food{
+    height: 70vh;
+    background-image: url(images/finger\ food.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;          
+    align-items: stretch;
+
+}
+
+.food-post-container {
+    
+    padding: 50px;
+    margin: 10px auto; 
+}
+
+.food-post {
+   
+    width: calc(30% - 20px);
+    text-align: center;
+}
+  
+.food-post img {
+    max-width: 100%;
+    height: auto;
+    border-top: 2px solid #4B0082;
+}
+  
+.food-post h3 {
+   
+    font-size: 1.2em;
+    color: #333;
+}
+  
+.food-post p {
+    font-weight: bold;
+    color: #e44d26;
+}
+  
+@media (max-width: 768px) {
+    .food-post {
+      width: calc(50% - 20px);
+    }
+  }
+  
+@media (max-width: 480px) {
+    .food-post {
+      width: calc(100% - 20px);
+    }
+}
+
+
+/* pepper soup */
+
+.body-pepper-soup{
+    height: 70vh;
+    background-image: url(images/unnamed.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;          
+    align-items: stretch;
+
+}
+
+/*shawarma */
+
+.body-shawarma{
+    height: 70vh;
+    background-image: url(images/sideshawarma-.avif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;          
+    align-items: stretch;
+
+}
+
+
+/*grill foods */
+
+.body-grill{
+    height: 70vh;
+    background-image: url(images/catfish-barbecue.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;          
+    align-items: stretch;
+
+}
+
+/*main dish */
+
+.body-main-dish{
+    height: 70vh;
+    background-image: url(images/Nigerian-Jollof-Rice-4.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;          
+    align-items: stretch;
+
+}
+
+/*beer*/
+
+.body-beer{
+    height: 70vh;
+    background-image: url(images/beer.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;          
+    align-items: stretch;
+
+}
+
+/*spirit page*/
+
+.body-spirit{
+    height: 70vh;
+    background-image: url(images/spirit.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;          
+    align-items: stretch;
+
+}
+
+
+  
+
+
+/* Price Post Container */
+.price-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.price-post {
+    flex: 1;
+    min-width: 300px; /* Ensures stacking on smaller screens */
+    padding: 15px;
+    max-width: 48%;
+    /* background: linear-gradient(to right, rgba(75, 0, 130, 1), rgba(138, 43, 226, 1));  */
+    color: white;
+    background: #d1b228;
+    text-align: center;
+    border-radius: 8px;
+    margin: 10px 10px;
+}
+
+/* Styling the <p> tag (price text) */
+.price-post p {
+    font-size: 20px;  /* Increase font size */
+    font-weight: bold; /* Make it bold */
+    margin-top: 10px;  /* Add spacing */
+    color: #fff;
+    padding: 8px 12px; /* Padding for a rounded effect */
+    border-radius: 5px; /* Smooth edges */
+    display: inline-block; /* Fit to content */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .price-container {
+        flex-direction: column; /* Stack items in column for small screens */
+        align-items: center;
+    }
+}
+
+/* Footer */
+.site-footer {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 5px;
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+
+}
+
+.footer-container {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers all elements inside the container */
+    justify-content: center;
+}
+
+.footer-container a {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4B0082;
+    transition: color 0.3s;
+}
+
+.footer-container a:hover {
+    color: #4B0082;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: -10px;
+}
+
+.footer-social a {
+    color: #8A2BE2;
+    font-size: 25px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.footer-social a:hover {
+    color: #4B0082;
+    transform: scale(1.2);
+}
+
+.footer-container a img {
+    width: 90px;
+    height: 90px;
+}
+
+#footer-p {
+    font-weight: 700;
+    color: #8A2BE2;
+}
+
+/*  featured post */
+.featured-post {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* ABOUT PAGE STYLING */
+
+
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 10%;
+    flex-wrap: wrap;
+}
+
+
+/* Both divs take equal space */
+.about-container,
+.image-container {
+    flex: 1;
+    max-width: 50%;
+    padding: 30px;
+    border-radius: 2px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.about-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    color: #000;
+    border-radius: 2px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+
+#about-h2 {
+    font-size: 28px;
+    color: #f8b400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+
+
+/* Adding a decorative underline */
+#about-h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(45deg, #ff6b6b, #f8e71c);
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+  
+  /* Styling the mission paragraph */
+  #about-p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #000;
+    padding: 0 20px;
+}
+
+
+.about-container p:last-of-type {
+    margin-bottom: 0;
+}
+/* Styling the Image */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* .image-container img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    object-fit: cover;
+} */
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-container, 
+    .image-container {
+        max-width: 100%;
+    }
+}
+
+
+/* Ensure the about-section is spaced well and does not overlap with other sections */
+.about-section {
+    padding: 40px 20px; /* Top/bottom and side padding */
+    margin: 20px 0; /* Vertical margin for separation */
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Space between the two divs */
+}
+
+/* Default styling for the two child divs */
+.about-container,
+.about-slider-container {
+    flex: 1 1 45%; /* Each takes up roughly 45% on larger screens */
+    box-sizing: border-box;
+}
+
+/* For smaller screens, stack the divs vertically */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-container,
+    .about-slider-container {
+        flex: none;
+        width: 100%;
+        max-width: 600px; /* Optional: cap width for readability */
+    }
+}
+
+
+
+
+
+
+
+
+/* Slider Container */
+.about-slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px; /* Set a fixed height */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;  /* Center container horizontally */
+}
+
+/* Slider */
+.about-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+/* Keyframes for a smooth slide/fade with a zoom effect */
+@keyframes slideFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateX(50px);
+    }
+    20% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.1) translateX(-50px);
+    }
+}
+
+.slide {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; /* Crop images to maintain aspect ratio */
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    animation: slideFade 3s ease-in-out forwards;
+}
+
+
+/* Event page */
+
+.body-event {
+    height: 100vh;
+    background-image: url(images/fidel-fernando-249DzAuJTqQ-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;           /* Use Flexbox for alignment */
+    align-items: stretch;
+
+}
+
+/* Styled Div */
+.custom-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.custom-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Heading */
+.custom-box h6 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    color: #4B0082;
+}
+
+/* Paragraph */
+.custom-box p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #000;
+}
+
+
+/* champagne page */
+.body-wines{
+    height: 70vh;
+    background-image: url(images/glass.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;           /* Use Flexbox for alignment */
+    align-items: stretch;
+
+}
+
+/* grill page */
+
+.food-post {
+    width: 250px;
+    height: 100px;
+    padding: 20px;
+    margin: 20px auto;
+    display: inline-block;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.food-post h3 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+
+/* GALLERY STYLING */
+
+
+.gallery {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .gallery-img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .gallery-img img {
+    width: 400px; /* Fixed width */
+    height: 400px; /* Fixed height */
+    object-fit: cover; /* Maintain aspect ratio and crop */
+    margin: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-img {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .gallery-img img {
+      width: 90%;
+      height: 400px; /*adjust height for mobile view if desired*/
+      max-width: 400px;
+      margin: 10px 0;
+    }
+  }
