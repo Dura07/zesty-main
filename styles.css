@@ -54,7 +54,7 @@
 
 
 .header.scrolled {
-    background: linear-gradient(to right, rgba(255, 255, 255), rgb(179, 3, 179));
+    background: linear-gradient(to right, rgba(255, 254, 243, 0.849), rgb(179, 3, 179));
     box-shadow: rgba(31, 29, 29, 0.5);
 }
 
@@ -1017,9 +1017,9 @@ h4 {
 
 .body-grill{
     height: 70vh;
-    background-image: url(images/catfish-barbecue.jpg);
+    background-image: url(images/fidh\ \(2\).jpg);
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
     background-size: cover;
     display: flex;          
     align-items: stretch;
