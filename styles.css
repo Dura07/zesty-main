@@ -596,7 +596,7 @@ ul li ul.dropdown li {
     text-align: center;
     max-width: 700px;
     background: white;
-    padding: 20px;
+    padding: 2px;
 }
 
 
@@ -606,11 +606,11 @@ ul li ul.dropdown li {
 }
 
 .word-container p {
-    color: #141212;
+    color: #362f2f;
     font-size: 1rem;
-    line-height: 1.8;
-    margin-top: 1px;
-    margin-left: 0;
+    line-height: 1.7;
+    width: 100%;
+    margin: 0;
 
     
 }
@@ -713,7 +713,7 @@ h4 {
 /* Heading (h3) Styling */
 .service-box h3 {
     font-size: 1.5rem; 
-    color: #4B0082; 
+    color: #000; 
     margin-bottom: 10px; /* Spacing below heading */
     font-weight: 600; 
 }
@@ -721,7 +721,7 @@ h4 {
 /* Paragraph (p) Styling */
 .service-box p {
     font-size: 1rem; 
-    color: #000; 
+    color: #362f2f; 
     line-height: 1.5;
     margin: 0 10px; /* Adds spacing inside */
 }
@@ -773,10 +773,6 @@ h4 {
     transform: translateY(0);
 }
 
-/* Hover effect */
-.back-to-top:hover {
-    background: #8A2BE2;
-}
 
 
 /* Featured Post Container */
@@ -794,11 +790,23 @@ h4 {
 }
   
   
-  /* Image Styling */
+
 .featured-post img {
     display: block;
     width: 100%;
     height: auto;
+}
+
+/*  featured post */
+.featured-post {
+    background-color: #4B0082;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: auto;
 }
   
  
@@ -1022,7 +1030,7 @@ h4 {
 
 .body-main-dish{
     height: 70vh;
-    background-image: url(images/Nigerian-Jollof-Rice-4.jpg);
+    background-image: url(images/foods\ \(6\).jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1075,8 +1083,9 @@ h4 {
     padding: 15px;
     max-width: 48%;
     /* background: linear-gradient(to right, rgba(75, 0, 130, 1), rgba(138, 43, 226, 1));  */
-    color: white;
-    background: #d1b228;
+    color: #4B0082;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
     border-radius: 8px;
     margin: 10px 10px;
@@ -1087,7 +1096,6 @@ h4 {
     font-size: 20px;  /* Increase font size */
     font-weight: bold; /* Make it bold */
     margin-top: 10px;  /* Add spacing */
-    color: #fff;
     padding: 8px 12px; /* Padding for a rounded effect */
     border-radius: 5px; /* Smooth edges */
     display: inline-block; /* Fit to content */
@@ -1166,15 +1174,7 @@ h4 {
     color: #8A2BE2;
 }
 
-/*  featured post */
-.featured-post {
-    background-color: #1a1a2e;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
-    margin-top: auto;
-}
+
 
 /* ABOUT PAGE STYLING */
 
@@ -1258,20 +1258,16 @@ h4 {
 .custom-box {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 2px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 80%;
-    max-width: 400px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 700px;
+   
+    
 }
 
-/* Hover Effect */
-.custom-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
-}
+
 
 /* Heading */
 .custom-box h6 {
@@ -1285,9 +1281,21 @@ h4 {
 .custom-box p {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #000;
+    color: #423939;
 }
 
+
+/* Events */
+.body-events {
+    height: 70vh;
+    background-image: url(images/evt\ \(4\).jpg), url(images/evt\ \(1\).jpg); /* Add another image */
+    background-position: center, right top; /* First image centered, second aligned top right */
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, contain; /* First image covers, second scales to fit */
+    display: flex;
+    align-items: stretch;
+
+}
 
 /* champagne page */
 .body-wines{
