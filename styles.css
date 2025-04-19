@@ -935,12 +935,26 @@ h4 {
 
 .body-finger-food{
     height: 70vh;
+    width: 100%;
     background-image: url(images/finger\ food.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;          
     align-items: stretch;
+
+}
+
+.body-grill{
+    height: 70vh;
+    width: 100%;
+    background-image: url(images/fidh\ \(2\).jpg);
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    display: flex;          
+    align-items: stretch;
+    overflow-x: hidden;
 
 }
 
