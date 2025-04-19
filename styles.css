@@ -1017,7 +1017,7 @@ h4 {
 
 .body-grill{
     height: 70vh;
-    width: 100vw;
+    width: 100%;
     background-image: url(images/fidh\ \(2\).jpg);
     background-position: center;
     background-repeat: no-repeat; 
