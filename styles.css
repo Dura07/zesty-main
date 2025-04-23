@@ -54,8 +54,8 @@
 
 
 .header.scrolled {
-    background: linear-gradient(to right, rgba(255, 254, 243, 0.849), rgb(179, 3, 179));
-    box-shadow: rgba(31, 29, 29, 0.5);
+    background: linear-gradient(to right, rgba(255, 254, 243, 0.9), #4B0082);
+    box-shadow: rgba(31, 29, 29, 0.9);
 }
 
 .body-eatery {
@@ -1046,7 +1046,7 @@ h4 {
 
 .body-main-dish{
     height: 70vh;
-    background-image: url(images/foods\ \(6\).jpg);
+    background-image: url(images/jollof\ rice.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1193,7 +1193,7 @@ h4 {
 
 
 /* ABOUT PAGE STYLING */
-
+  
 .about-section {
     padding: 10px 1px; 
     margin: 27px 0; 
@@ -1208,15 +1208,18 @@ h4 {
 }
 
 
-#about-h2 {
-    font-size: 18px;
-    color: #f8b400;
+
+
+.about-h2 {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1px;
-    margin-top: 1px;
- 
-}
+    display: inline-block;
+    border-radius: 6px;
+} 
  
 #about-p {
     font-size: 14px;
@@ -1233,7 +1236,7 @@ h4 {
         min-height: auto;
     }
 
-    #about-h2 {
+    .about-h2 {
         font-size: 1.3em;
        
     }
