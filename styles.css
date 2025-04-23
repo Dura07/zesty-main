@@ -553,8 +553,8 @@ ul li ul.dropdown li {
 }
 
 .fade-slider img {
-    width: 350px; /* Fixed width */
-    height: 300px; /* Fixed height */
+    width: 550px; /* Fixed width */
+    height: 400px; /* Fixed height */
     object-fit: cover; /* Ensures images fill the box without distortion */
    
 }
