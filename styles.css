@@ -96,10 +96,10 @@ html {
 /* Glowing Animation */
 @keyframes glow {
     0% {
-        box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+        box-shadow: 0 0 10px rgba(206, 6, 247, 0.8);
     }
     100% {
-        box-shadow: 0 0 20px rgba(255, 165, 0, 1), 0 0 40px rgba(255, 165, 0, 0.8);
+        box-shadow: 0 0 20px rgb(155, 6, 224), 0 0 40px rgba(255, 165, 0, 0.8);
     }
 }
 
@@ -350,23 +350,60 @@ ul li ul.dropdown li {
         display: flex;          
         align-items: stretch;
 
-        animation: background-slideshow 30s infinite;
+        animation: background-slideshow-ken-burns 30s infinite alternate;
         
     
     }
 
-    @keyframes background-slideshow {
+    @keyframes background-slideshow-ken-burns {
+    /* Image 1 */
     0% {
         background-image: url('images/bg3.jpg');
+        background-size: 105%; /* Start slightly zoomed in */
+        background-position: 0% 0%; /* Start top-left */
     }
-    50% {
+    15% {
+        background-size: 100%; /* Zoom out slightly */
+        background-position: 50% 50%; /* Pan to center */
+    }
+    33% { /* Hold the final state of Image 1 before the next transition */
+        background-image: url('images/bg3.jpg');
+        background-size: 100%;
+        background-position: 50% 50%;
+    }
+
+    /* Image 2 */
+    34% {
         background-image: url('images/bgd1.jpg'); /* Your second image */
+        background-size: 100%; /* Start normal size */
+        background-position: 100% 0%; /* Start top-right */
     }
-    100% {
+    49% {
+        background-size: 108%; /* Zoom in */
+        background-position: 0% 100%; /* Pan to bottom-left */
+    }
+    66% { /* Hold the final state of Image 2 */
+        background-image: url('images/bgd1.jpg');
+        background-size: 108%;
+        background-position: 0% 100%;
+    }
+
+    /* Image 3 */
+    67% {
         background-image: url('images/bgd2.jpg'); /* Your third image */
+        background-size: 102%; /* Start slightly zoomed in */
+        background-position: 50% 0%; /* Start top-center */
     }
-    
-} 
+    82% {
+        background-size: 100%; /* Zoom out */
+        background-position: 50% 100%; /* Pan to bottom-center */
+    }
+    100% { /* Hold the final state of Image 3 */
+        background-image: url('images/bgd2.jpg');
+        background-size: 100%;
+        background-position: 50% 100%;
+    }
+}
 
 
 
@@ -736,7 +773,7 @@ h4 {
 
 /* Heading (h3) Styling */
 .service-box h3 {
-    font-size: 1.5rem; 
+    font-size: 1.2rem; 
     color: #000; 
     margin-bottom: 10px; /* Spacing below heading */
     font-weight: 600; 
@@ -744,10 +781,12 @@ h4 {
 
 /* Paragraph (p) Styling */
 .service-box p {
-    font-size: 0.85rem; 
+    font-size: 0.88rem; 
     color: #362f2f; 
     line-height: 1.5;
+   
     margin: 0 10px; /* Adds spacing inside */
+    
 }
 
 /* Responsive Layout */
@@ -808,7 +847,7 @@ h4 {
     background: #f4f4f4; 
     text-align: center;
     position: relative;
-    font-weight: bold;
+    /* font-weight: bold; */
     overflow: hidden;
     border-radius: 10px;
 }
@@ -909,7 +948,7 @@ h4 {
   /* Headings within menu posts */
 .menu-post h3 {
     margin: 0 0 10px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #333;
   }
   
@@ -1002,12 +1041,12 @@ h4 {
   
 .food-post h3 {
    
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #333;
 }
   
 .food-post p {
-    font-weight: bold;
+    
     color: #e44d26;
 }
   
@@ -1238,7 +1277,7 @@ h4 {
     background-color: red;
     color: white;
     padding: 10px 20px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     text-transform: uppercase;
     display: inline-block;
@@ -1246,7 +1285,7 @@ h4 {
 } 
  
 #about-p {
-    font-size: 14px;
+    font-size: 0.85rem;
     line-height: 1.5;
     margin-top: 20px;
     color: #050404;
@@ -1266,7 +1305,7 @@ h4 {
     }
 
     #about-p {
-        font-size: 0.95em;
+        font-size: 0.85rem;
         line-height: 1.5;
     }
 }
@@ -1288,7 +1327,7 @@ h4 {
 
 .body-event {
     height: 100vh;
-    background-image: url(images/fidel-fernando-249DzAuJTqQ-unsplash.jpg);
+    background-image: url(images/bg3.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1322,7 +1361,7 @@ h4 {
 
 /* Paragraph */
 .custom-box p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.6;
     color: #423939;
 }
@@ -1331,7 +1370,7 @@ h4 {
 /* Events */
 .body-events {
     height: 70vh;
-    background-image: url(images/evt\ \(4\).jpg); 
+    background-image: url(images/bgd1.jpg); 
     background-position: center, right top; /* First image centered, second aligned top right */
     background-repeat: no-repeat, no-repeat;
     background-size: cover, contain; /* First image covers, second scales to fit */
@@ -1370,7 +1409,7 @@ h4 {
 
 .food-post h3 {
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.2;
 }
 
@@ -1419,7 +1458,7 @@ h4 {
   /* dice game*/
   .body-games {
 
-     height: 70vh;
+    height: 70vh;
     width: 100%;
     background-image: url(images/games-bg.jpg);
     background-position: center;
