@@ -5,6 +5,12 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+
+
 
 /* Loader Overlay */
 #loader {
@@ -61,7 +67,7 @@
 
 .body-eatery {
     height: 100vh;
-    background-image: url(images/janko-ferlic-nVPfPXc3eis-unsplash.jpg);
+    background-image: url(images/bg3.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -337,15 +343,32 @@ ul li ul.dropdown li {
 
     .body-eatery {
         height: 70vh;
-        background-image: url(images/janko-ferlic-nVPfPXc3eis-unsplash.jpg);
+        /* background-image: url(images/janko-ferlic-nVPfPXc3eis-unsplash.jpg); */
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        display: flex;           /* Use Flexbox for alignment */
+        display: flex;          
         align-items: stretch;
+
+        animation: background-slideshow 30s infinite;
         
     
     }
+
+    @keyframes background-slideshow {
+    0% {
+        background-image: url('images/bg3.jpg');
+    }
+    50% {
+        background-image: url('images/bgd1.jpg'); /* Your second image */
+    }
+    100% {
+        background-image: url('images/bgd2.jpg'); /* Your third image */
+    }
+    
+} 
+
+
 
     .body-wines {
         height: 70vh;
@@ -608,7 +631,7 @@ ul li ul.dropdown li {
 
 .word-container p {
     color: #362f2f;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.7;
     width: 100%;
     margin: 0;
@@ -721,7 +744,7 @@ h4 {
 
 /* Paragraph (p) Styling */
 .service-box p {
-    font-size: 1rem; 
+    font-size: 0.85rem; 
     color: #362f2f; 
     line-height: 1.5;
     margin: 0 10px; /* Adds spacing inside */
@@ -751,7 +774,7 @@ h4 {
     bottom: 20px;
     right: 20px;
     background: #4B0082;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
     width: 40px;
@@ -1389,3 +1412,238 @@ h4 {
       margin: 10px 0;
     }
   }
+
+
+
+
+  /* dice game*/
+  .body-games {
+
+     height: 70vh;
+    width: 100%;
+    background-image: url(images/games-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    display: flex;          
+    align-items: stretch;
+    overflow-x: hidden;
+
+  }
+  
+
+
+.dice-game-section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 2px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 2em;
+    animation: fadeInDown 1s ease-out;
+}
+
+.dice-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.dice {
+    font-size: 4em;
+    padding: 20px;
+    border: 3px solid #666;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: bounceIn 1.2s ease-out;
+}
+
+.result {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-bottom: 30px;
+    min-height: 1.5em; /* To prevent layout shift */
+}
+
+.roll-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.roll-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.roll-btn:active {
+    background-color: #004085;
+    transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+        transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+        transform: scale3d(.97, .97, .97);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+
+.games-header {
+  background-color: #800080;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  height: 50px;
+  vertical-align: middle;
+}
+
+.games-container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.game-section {
+  background-color: #f7f5f5;
+  padding: 20px;
+  border-radius: 1px;
+}
+
+.dice-display {
+  font-size: 60px;
+}
+
+.result-text {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.roll-btn{
+  padding: 10px 20px;
+  background: #9b30ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+roll-btn:hover {
+  background: #c05aff;
+} 
+
+.tic-tac-toe {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  gap: 5px;
+  margin: 10px 0;
+}
+
+.tic-tac-toe div {
+  background: #444;
+  width: 60px;
+  height: 60px;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  gap: 10px;
+}
+
+.memory-grid div {
+  background: #555;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 24px;
+  color: transparent;
+  cursor: pointer;
+}
+
+.memory-grid div.flipped {
+  color: #fff;
+  background: #800080;
+}
+
+canvas {
+  display: block;
+  margin: 30px auto;
+  border-radius: 50%;
+  box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.1), inset 0 0 15px #000;
+  background: #1a1a1a;
+}

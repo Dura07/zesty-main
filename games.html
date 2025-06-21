@@ -3,19 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zest Lounge and Bar - Events</title>
-    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
-    
+    <title>Zest Lounge - Fun Games</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" sizes="32x32" href="images/purple_logo.png">
 </head>
 <body>
 
-    <div id="loader" style="display: none;">
-        <img src="images/purple_logo.png">
-    </div>
-
-    <section class="body-events">
+    <section class="body-games">
 
         <header class="header">
             <a href="index.html" class="brand-logo"><img src="images/purple_logo.png" alt="Brand Logo"></a>    
@@ -69,9 +63,9 @@
                         <li><a href="non-alcoholics.html">Non Alcoholic</a></li>
                     </ul>
                 </li>
-                <li><a href="games.html">Games</a></li>
+        
                 <li><a href="about.html">About</a></li>
-                
+                <li><a href="games.html">Games</a></li>
             </ul>
         </nav>
         
@@ -79,7 +73,7 @@
 
         <div class="rec-box">
            
-            <h3>Events</h3>
+            <h3>Games</h3>
         
             
 
@@ -87,58 +81,21 @@
         </div>
         
     </section>
+  <main class="games-container">
 
-    <section class="hero">
-        <!-- Slider Container -->
-        <div class="fade-slider-container">
-            <div class="fade-slider">
-                <img src="images/event (26).jpg">
-                <img src="images/event (33).jpg">
-                <img src="images/event (30).jpg">
-                <img src="images/event (16).jpg">
-                <img src="images/event (23).jpg">
-           
-            </div>
+    <!-- Wheel of Fortune -->
 
-
-            
-        </div>
-
-        <!-- Word Container -->
-       
-
-        <div class="custom-box">
-            <h6>Join Us for a Night of Celebration at Zest Lounge and Bar</h6>
-            <p>Get ready to light up the night! Zest Lounge and Bar invites you to an electrifying evening of music, drinks, and non-stop dancing. Save the date for [Date] and get ready to experience the ultimate party vibe in town!</p>
-
-
-            <h6>Live Music Extravaganza:</h6>
-            <p>Feel the beat and let the music take over! Talented artists will hit the stage with electrifying performances, from soulful jazz to high-energy pop hits. Get ready to dance the night away and soak in the ultimate live music experience!</p>
-
-
-        </div>
-
-        <div class="custom-box">
-            <h6>Special Surprises: </h6>
-            <p>Stay tuned for exciting surprises all night long—giveaways, exclusive drink specials, and more! This is one party you won’t want to miss, so get ready for an unforgettable night of fun!</p>
-
-
-            <h6>Dance Floor Delight:</h6>
-            <p>Lace up your dancing shoes and hit the floor as our resident DJ drops the hottest tracks all night long! With a high-energy sound system and a dazzling light show, get ready to lose yourself in the rhythm and excitement of the crowd.</p>
-
-
-        </div>
+      <section class="game-section">
+  <h2>🎡 Wheel of Drink😅</h2>
+  <p>Spin the wheel and see what to Order!</p>
+  <canvas id="wheelCanvas" width="300" height="300"></canvas>
+  <button onclick="spinWheel()" class="roll-btn">Spin the Wheel</button>
+  <p id="wheelResult" class="result-text"></p>
     </section>
 
     
-
-    <!-- Back to Top Button -->
-<button id="backToTop" class="back-to-top">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>
-</button>
-
-<!-- DICE GAME SECTION -->
- <!-- <section class="dice-game-section">
+    <!-- Dice Game -->
+    <section class="dice-game-section">
     <h2>🎲Dice Game</h2>
     <div class="dice-container">
       <div class="dice" id="player1">🎲</div>
@@ -147,17 +104,70 @@
     <div class="result" id="resultText">Click "Roll Dice" to start!</div>
     <button onclick="rollDice()" class="roll-btn">Roll Dice</button>
   </section>
- -->
 
 
+    <!-- Rock, Paper, Scissors -->
+     <!-- <section class="game-section">
+      <h2>✊ Rock, Paper, Scissors ✋</h2>
+      <p>Make your move and beat the computer!</p>
+      <div class="rps-buttons">
+        <button onclick="playRPS('rock')">Rock</button>
+        <button onclick="playRPS('paper')">Paper</button>
+        <button onclick="playRPS('scissors')">Scissors</button>
+      </div>
+      <p id="rpsResult" class="result-text"></p>
+    </section> -->
 
-     <!-- Footer -->
+
+    <!-- <section class="game-section">
+      <h2>🔢 Guess the Number</h2>
+      <p>Guess a number between 1 and 10:</p>
+      <input type="number" id="guessInput" min="1" max="10" />
+      <button onclick="checkGuess()">Guess</button>
+      <p id="guessResult" class="result-text"></p>
+    </section> -->
+
+
+     <section class="dice-game-section">
+      <h2>❌ Tic Tac Toe ⭕</h2>
+      <p>Play against a friend on the same screen!</p>
+      <div class="tic-tac-toe" id="ticTacToe"></div>
+      <p id="tttResult" class="result-text"></p>
+    </section>
+
+
+     <section class="game-section">
+      <h2>🧠 Memory Game</h2>
+      <p>Flip cards and match pairs!</p>
+      <div class="memory-grid" id="memoryGame"></div>
+    </section>
+
+    <section class="game-section">
+  <h2><svg xmlns="http://www.w3.org/2000/svg" height="44px" viewBox="0 -960 960 960" width="44px" fill="#046"><path d="m608-368 46-166-142-98-46 166 142 98ZM160-207l-33-16q-31-13-42-44.5t3-62.5l72-156v279Zm160 87q-33 0-56.5-24T240-201v-239l107 294q3 7 5 13.5t7 12.5h-39Zm206-5q-31 11-62-3t-42-45L245-662q-11-31 3-61.5t45-41.5l301-110q31-11 61.5 3t41.5 45l178 489q11 31-3 61.5T827-235L526-125Zm-28-75 302-110-179-490-301 110 178 490Zm62-300Z"/></svg> Coin Toss</h2>
+  <p>Heads or Tails? Make your call!</p>
+  <button onclick="tossCoin()" class="roll-btn">Toss Coin</button>
+  <p id="coinResult" class="result-text"></p>
+</section>
+
+
+  
+
+
+  </main>
+
+
+   <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>
+    </button>
+
+   <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-container">
             <a href="index.html">
                 <img src="images/purple_logo.png">
             </a>
-            <p id="footer-p">&copy; <span id="currentYear"></span> Zest Lounge and Bar. All rights reserved.</p>
+            <p id="footer-p">Copyright &copy; <span id="currentYear"></span> Zest Lounge and Bar. All rights reserved.</p>
 
             <div class="footer-social">
                 <a href="#"><i class="fab fa-facebook"></i></a>
@@ -166,19 +176,11 @@
             </div>
         </div>
     </footer>
-    
-    
-    
 
 
 
 
-
-
-
-   
-
-    <script src="js/scripts.js"></script>
+  <script src="js/scripts.js"></script>
     
 </body>
 </html>
