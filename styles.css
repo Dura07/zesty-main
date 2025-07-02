@@ -625,6 +625,7 @@ ul li ul.dropdown li {
     font-size: 0.8rem;
     line-height: 1.7;
     width: 100%;
+    text-align: justify;
     margin: 0;
 
     
@@ -703,7 +704,7 @@ h4 {
 
 /* Service Boxes */
 .service-box {
-    background: #f7f4f4;
+    background: #fdfdfd;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -739,7 +740,8 @@ h4 {
     font-size: 0.8em; 
     color: #362f2f; 
     line-height: 1.5;
-    margin: 0 10px; /* Adds spacing inside */
+    text-align: justify;
+   margin: 2rem auto;
     
 }
 
