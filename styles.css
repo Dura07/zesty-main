@@ -80,7 +80,11 @@ html {
     width: 55%;
     padding: 20px;
     text-align: center;
-    background-color: rgba(243, 237, 237, 0.59);
+    background: linear-gradient(
+    to right,
+    rgba(255, 252, 252, 0.9),
+    rgba(229, 229, 243, 0.9)
+    );
     color: #000; /* White text */
     font-size: 24px;
     box-shadow: 0 0 10px rgba(255, 165, 0, 0.8); /* Initial glow */
@@ -96,10 +100,10 @@ html {
 /* Glowing Animation */
 @keyframes glow {
     0% {
-        box-shadow: 0 0 10px rgba(206, 6, 247, 0.8);
+        box-shadow: 0 0 10px rgba(233, 180, 36, 0.842);
     }
     100% {
-        box-shadow: 0 0 20px rgb(155, 6, 224), 0 0 40px rgba(255, 165, 0, 0.8);
+        box-shadow: 0 0 20px rgb(236, 233, 19), 0 0 40px rgba(255, 165, 0, 0.8);
     }
 }
 
@@ -500,6 +504,7 @@ ul li ul.dropdown li {
     max-width: 1300px; /* Increased for bigger displays */
     margin: 40px auto;
     padding: 40px;
+    padding-top: 20px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center; /* Centers slider horizontally */
@@ -617,7 +622,7 @@ ul li ul.dropdown li {
 
 .word-container p {
     color: #362f2f;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     line-height: 1.7;
     width: 100%;
     margin: 0;
@@ -626,7 +631,7 @@ ul li ul.dropdown li {
 }
 
 .word-container h2 {
-    font-size: 2rem;
+    font-size: 1.3em;
     color: #000;
     margin-bottom: 10px;
     text-transform: capitalize;
@@ -677,10 +682,11 @@ ul li ul.dropdown li {
 
 .services-heading {
     text-align: left;
-    font-size: 2rem;
+    font-size: 1.8em;
     font-weight: bold;
     color: #000;
     margin-bottom: 20px;
+    padding-top: 10px;
     width: 100%; 
 }
 
@@ -697,7 +703,7 @@ h4 {
 
 /* Service Boxes */
 .service-box {
-    background: #fff;
+    background: #f7f4f4;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -722,7 +728,7 @@ h4 {
 
 /* Heading (h3) Styling */
 .service-box h3 {
-    font-size: 1.2rem; 
+    font-size: 1em; 
     color: #000; 
     margin-bottom: 10px; /* Spacing below heading */
     font-weight: 600; 
@@ -730,10 +736,9 @@ h4 {
 
 /* Paragraph (p) Styling */
 .service-box p {
-    font-size: 0.88rem; 
+    font-size: 0.8em; 
     color: #362f2f; 
     line-height: 1.5;
-   
     margin: 0 10px; /* Adds spacing inside */
     
 }
@@ -790,7 +795,7 @@ h4 {
 /* Featured Post Container */
 .featured-post {
     flex: 1;
-    min-width: 300px; /* Ensures stacking on smaller screens */
+    min-width: 290px; /* Ensures stacking on smaller screens */
     max-width: 30%; /* Ensures side-by-side layout on large screens */
     padding: 15px;
     background: #f4f4f4; 
@@ -798,8 +803,19 @@ h4 {
     position: relative;
     /* font-weight: bold; */
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 1px;
 }
+
+.featured-post h3 {
+  font-size: 1em;
+  color: #4B0082; 
+  margin-bottom: 1rem;
+  text-align: center;
+  text-transform: capitalize;
+ 
+  
+}
+
   
   
 
@@ -811,7 +827,7 @@ h4 {
 
 /*  featured post */
 .featured-post {
-    background-color: #4B0082;
+    /* background-color: #4B0082; */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 
     color: #ffffff;
