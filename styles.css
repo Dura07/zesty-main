@@ -65,7 +65,7 @@ html {
 
 .body-eatery {
     height: 100vh;
-    background-image: url(images/bg3.jpg);
+    background-image: url(images/zesty\ \(4\).JPG);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -344,8 +344,8 @@ ul li ul.dropdown li {
 @media (max-width: 768px) {
 
     .body-eatery {
-        height: 65vh;
-        background-image: url(images/20220820_201458.jpg);
+        height: 100vh;
+        background-image: url(images/zesty\ \(4\).JPG);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
