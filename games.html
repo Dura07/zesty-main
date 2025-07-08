@@ -94,16 +94,37 @@
     </section>
 
     
-    <!-- Dice Game -->
-    <section class="game-section">
-    <h2>🎲Dice Game</h2>
-    <div class="dice-container">
-      <div class="dice" id="player1">🎲</div>
-      <div class="dice" id="player2">🎲</div>
+    
+
+    <h1>Sudoku Game</h1>
+  <div class="info-bar">
+    <span id="timer">Time: 00:00</span>
+    <span id="score">Score: 0</span>
+  </div>
+  
+  <div class="sudoku-board" id="board"></div>
+
+  <div class="buttons">
+    <button onclick="checkSolution()">Check Solution</button>
+    <button onclick="resetBoard()">Reset Puzzle</button>
+  </div>
+
+  <div id="message"></div>
+
+
+    <h1>🎲 Real Dice Duel</h1>
+    <div class="dice-box">
+      <div class="player">
+        <p>Player 1</p>
+        <img id="dice1" class="dice" src="images/dice_1.png" alt="Dice 1"/>
+      </div>
+      <div class="player">
+        <p>Player 2</p>
+        <img id="dice2" class="dice" src="images/dice_1.png" alt="Dice 2"/>
+      </div>
     </div>
-    <div class="result" id="resultText">Click "Roll Dice" to start!</div>
-    <button onclick="rollDice()" class="roll-btn">Roll Dice</button>
-  </section>
+    <p id="result" class="result-msg">Click to roll the dice!</p>
+    <button onclick="rollDice()" class="roll-button">Roll Dice</button>
 
 
     
@@ -123,15 +144,10 @@
       <div class="memory-grid" id="memoryGame"></div>
     </section>
 
-    <section class="game-section">
-  <h2><svg xmlns="http://www.w3.org/2000/svg" height="44px" viewBox="0 -960 960 960" width="44px" fill="#046"><path d="m608-368 46-166-142-98-46 166 142 98ZM160-207l-33-16q-31-13-42-44.5t3-62.5l72-156v279Zm160 87q-33 0-56.5-24T240-201v-239l107 294q3 7 5 13.5t7 12.5h-39Zm206-5q-31 11-62-3t-42-45L245-662q-11-31 3-61.5t45-41.5l301-110q31-11 61.5 3t41.5 45l178 489q11 31-3 61.5T827-235L526-125Zm-28-75 302-110-179-490-301 110 178 490Zm62-300Z"/></svg> Coin Toss</h2>
-  <p>Heads or Tails? Make your call!</p>
-  <button onclick="tossCoin()" class="roll-btn">Toss Coin</button>
-  <p id="coinResult" class="result-text"></p>
-</section>
+    
+    
 
 
-  
 
 
   </main>

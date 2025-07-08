@@ -130,49 +130,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// Dice Game
- function rollDice() {
-      const diceFaces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
-      const roll1 = Math.floor(Math.random() * 6);
-      const roll2 = Math.floor(Math.random() * 6);
 
-      document.getElementById("player1").textContent = diceFaces[roll1];
-      document.getElementById("player2").textContent = diceFaces[roll2];
 
-      const resultText = document.getElementById("resultText");
-      if (roll1 > roll2) {
-        resultText.textContent = "🏆 Player 1 wins!";
-      } else if (roll2 > roll1) {
-        resultText.textContent = "🏆 Player 2 wins!";
-      } else {
-        resultText.textContent = "🤝 It's a tie!";
-      }
-    }
-
-// Rock Paper Scissors
-// function playRPS(playerChoice) {
-//   const choices = ["rock", "paper", "scissors"];
-//   const compChoice = choices[Math.floor(Math.random() * 3)];
-
-//   let result = "";
-//   if (playerChoice === compChoice) result = "It's a tie!";
-//   else if (
-//     (playerChoice === "rock" && compChoice === "scissors") ||
-//     (playerChoice === "paper" && compChoice === "rock") ||
-//     (playerChoice === "scissors" && compChoice === "paper")
-//   ) result = `You win! Computer chose ${compChoice}`;
-//   else result = `You lose! Computer chose ${compChoice}`;
-
-//   document.getElementById("rpsResult").textContent = result;
-// }
-
-// Guess the Number
-// const secretNumber = Math.floor(Math.random() * 10) + 1;
-// function checkGuess() {
-//   const guess = Number(document.getElementById("guessInput").value);
-//   const result = guess === secretNumber ? "Correct!" : "Try again!";
-//   document.getElementById("guessResult").textContent = result;
-// }
 
 // Tic Tac Toe
 let tttBoard = Array(9).fill("");
@@ -355,4 +314,186 @@ window.addEventListener("scroll", function () {
     }
   }
 });
+
+
+
+//sudoku games//
+
+const originalPuzzle = [
+  [5, 3, "", "", 7, "", "", "", ""],
+  [6, "", "", 1, 9, 5, "", "", ""],
+  ["", 9, 8, "", "", "", "", 6, ""],
+  [8, "", "", "", 6, "", "", "", 3],
+  [4, "", "", 8, "", 3, "", "", 1],
+  [7, "", "", "", 2, "", "", "", 6],
+  ["", 6, "", "", "", "", 2, 8, ""],
+  ["", "", "", 4, 1, 9, "", "", 5],
+  ["", "", "", "", 8, "", "", 7, 9]
+];
+
+let board = document.getElementById("board");
+let timerDisplay = document.getElementById("timer");
+let scoreDisplay = document.getElementById("score");
+let message = document.getElementById("message");
+
+let startTime, timerInterval, attemptCount = 0;
+
+function createBoard(puzzle) {
+  board.innerHTML = "";
+  for (let row = 0; row < 9; row++) {
+    for (let col = 0; col < 9; col++) {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.maxLength = 1;
+      input.className = "cell";
+
+      if (puzzle[row][col] !== "") {
+        input.value = puzzle[row][col];
+        input.disabled = true;
+        input.classList.add("fixed");
+      }
+
+      if (col % 3 === 0) input.style.borderLeftWidth = "2px";
+      if (row % 3 === 0) input.style.borderTopWidth = "2px";
+      if (col === 8) input.style.borderRightWidth = "2px";
+      if (row === 8) input.style.borderBottomWidth = "2px";
+
+      input.dataset.row = row;
+      input.dataset.col = col;
+      board.appendChild(input);
+    }
+  }
+}
+
+function getBoardValues() {
+  const inputs = board.querySelectorAll(".cell");
+  const values = Array.from({ length: 9 }, () => Array(9).fill(""));
+
+  inputs.forEach(input => {
+    const row = parseInt(input.dataset.row);
+    const col = parseInt(input.dataset.col);
+    values[row][col] = input.value;
+  });
+
+  return values;
+}
+
+function isValidSudoku(board) {
+  const rows = Array.from({ length: 9 }, () => new Set());
+  const cols = Array.from({ length: 9 }, () => new Set());
+  const boxes = Array.from({ length: 9 }, () => new Set());
+
+  for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+      const val = board[r][c];
+      if (val === "") return false;
+
+      const num = parseInt(val);
+      if (isNaN(num) || num < 1 || num > 9) return false;
+
+      const boxIndex = Math.floor(r / 3) * 3 + Math.floor(c / 3);
+
+      if (rows[r].has(num) || cols[c].has(num) || boxes[boxIndex].has(num)) {
+        return false;
+      }
+
+      rows[r].add(num);
+      cols[c].add(num);
+      boxes[boxIndex].add(num);
+    }
+  }
+
+  return true;
+}
+
+function checkSolution() {
+  attemptCount++;
+  const boardValues = getBoardValues();
+  const isValid = isValidSudoku(boardValues);
+
+  if (isValid) {
+    stopTimer();
+    message.textContent = `🎉 Correct! Sudoku Solved in ${formatTime()} with ${attemptCount} attempt(s)!`;
+    message.style.color = "green";
+    updateScore();
+  } else {
+    message.textContent = `❌ Incorrect. Try again! Attempt #${attemptCount}`;
+    message.style.color = "red";
+  }
+}
+
+function resetBoard() {
+  clearInterval(timerInterval);
+  startTimer();
+  createBoard(originalPuzzle);
+  message.textContent = "";
+  attemptCount = 0;
+  scoreDisplay.textContent = "Score: 0";
+}
+
+function startTimer() {
+  startTime = Date.now();
+  timerInterval = setInterval(() => {
+    timerDisplay.textContent = "Time: " + formatTime();
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+function formatTime() {
+  const elapsed = Math.floor((Date.now() - startTime) / 1000);
+  const minutes = String(Math.floor(elapsed / 60)).padStart(2, "0");
+  const seconds = String(elapsed % 60).padStart(2, "0");
+  return `${minutes}:${seconds}`;
+}
+
+function updateScore() {
+  const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+  const score = Math.max(1000 - (elapsedSeconds * 2 + attemptCount * 10), 0);
+  scoreDisplay.textContent = `Score: ${score}`;
+}
+
+window.onload = () => {
+  createBoard(originalPuzzle);
+  startTimer();
+};
+
+
+// dice game
+
+function rollDice() {
+  const dice1 = document.getElementById("dice1");
+  const dice2 = document.getElementById("dice2");
+  const result = document.getElementById("result");
+
+  // Apply roll animation
+  dice1.classList.add("roll");
+  dice2.classList.add("roll");
+
+  setTimeout(() => {
+    dice1.classList.remove("roll");
+    dice2.classList.remove("roll");
+
+    const roll1 = Math.floor(Math.random() * 6) + 1;
+    const roll2 = Math.floor(Math.random() * 6) + 1;
+
+    dice1.src = `images/dice${roll1}.png`;
+    dice2.src = `images/dice${roll2}.png`;
+
+    if (roll1 > roll2) {
+      result.textContent = "🎉 Player 1 wins!";
+    } else if (roll2 > roll1) {
+      result.textContent = "🎉 Player 2 wins!";
+    } else {
+      result.textContent = "🤝 It's a draw!";
+    }
+  }, 500);
+}
+
+
+// flappy bird clone
+
+
 
