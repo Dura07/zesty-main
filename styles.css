@@ -344,7 +344,7 @@ ul li ul.dropdown li {
 @media (max-width: 768px) {
 
     .body-eatery {
-        height: 100vh;
+        height: 65vh;
         background-image: url(images/zesty\ \(4\).JPG);
         background-position: center;
         background-repeat: no-repeat;
