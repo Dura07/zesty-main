@@ -493,7 +493,7 @@ ul li ul.dropdown li {
 
     
 
-
+}
 
     /* Hero section Styling */
     .hero {
@@ -508,7 +508,7 @@ ul li ul.dropdown li {
 
     .fade-slider-container {
         width: 100%;
-        max-width: 1300px; /* Increased for bigger displays */
+        max-width: 1400px; /* Increased for bigger displays */
         margin: 20px auto;
         padding: 20px;
         /* padding-top: 20px; */
@@ -517,7 +517,7 @@ ul li ul.dropdown li {
         justify-content: center; /* Centers slider horizontally */
         align-items: center;     /* Centers slider vertically */
         text-align: center;
-        aspect-ratio: 16 / 9; /* Maintains a 16:9 ratio */
+        
     
     }
 
@@ -581,7 +581,7 @@ ul li ul.dropdown li {
         object-fit: cover; /* Ensures images fill the box without distortion */
     
     }
-}
+
 
 
 /* Media query for smaller screens */
@@ -596,7 +596,7 @@ ul li ul.dropdown li {
     .fade-slider img {
         width: 100%; /* Full width for small screens */
         max-width: 500px; /* Prevents excessive image scaling */
-        height: 450px;
+        height: 400px;
         
     }
 }
