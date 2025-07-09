@@ -461,36 +461,7 @@ window.onload = () => {
 };
 
 
-// dice game
 
-function rollDice() {
-  const dice1 = document.getElementById("dice1");
-  const dice2 = document.getElementById("dice2");
-  const result = document.getElementById("result");
-
-  // Apply roll animation
-  dice1.classList.add("roll");
-  dice2.classList.add("roll");
-
-  setTimeout(() => {
-    dice1.classList.remove("roll");
-    dice2.classList.remove("roll");
-
-    const roll1 = Math.floor(Math.random() * 6) + 1;
-    const roll2 = Math.floor(Math.random() * 6) + 1;
-
-    dice1.src = `images/dice${roll1}.png`;
-    dice2.src = `images/dice${roll2}.png`;
-
-    if (roll1 > roll2) {
-      result.textContent = "🎉 Player 1 wins!";
-    } else if (roll2 > roll1) {
-      result.textContent = "🎉 Player 2 wins!";
-    } else {
-      result.textContent = "🤝 It's a draw!";
-    }
-  }, 500);
-}
 
 
 // flappy bird clone
