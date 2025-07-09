@@ -10,6 +10,7 @@ html {
 }
 
 
+
 /* Loader Overlay */
 #loader {
     position: fixed;
@@ -69,7 +70,7 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;           /* Use Flexbox for alignment */
+    display: flex;           
     align-items: stretch;
     
 
@@ -355,13 +356,13 @@ ul li ul.dropdown li {
     } */
 
     .body-eatery {
-        position: relative;
+        /* position: relative; */
         height: 65vh;
         overflow: hidden;
         background-image: url(images/zesty\ \(3\).JPG);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        /* background-size: cover; */
+        /* background-repeat: no-repeat; */
+        /* background-position: center; */
     }
 
 
@@ -526,7 +527,7 @@ ul li ul.dropdown li {
     .fade-slider {
         position: relative;
         width: 100%;
-        max-width: 600px;
+        max-width: 700px;
         height: 420px;
         overflow: hidden;
         display: flex;
@@ -715,7 +716,7 @@ h4 {
 
 /* Service Boxes */
 .service-box {
-    background: #fdfdfd;
+    background: #f7f5f5;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -808,7 +809,7 @@ h4 {
 /* Featured Post Container */
 .featured-post {
     flex: 1;
-    min-width: 300px; /* Ensures stacking on smaller screens */
+    min-width: 400px; /* Ensures stacking on smaller screens */
     max-width: 30%; /* Ensures side-by-side layout on large screens */
     padding: 15px;
     background: #f4f4f4; 
