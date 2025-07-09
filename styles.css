@@ -11,6 +11,7 @@ html {
 
 
 
+
 /* Loader Overlay */
 #loader {
     position: fixed;
@@ -360,9 +361,9 @@ ul li ul.dropdown li {
         height: 65vh;
         overflow: hidden;
         background-image: url(images/zesty\ \(3\).JPG);
-        /* background-size: cover; */
-        /* background-repeat: no-repeat; */
-        /* background-position: center; */
+        background-size: cover;
+        background-repeat: no-repeat; 
+        background-position: center; 
     }
 
 
@@ -527,7 +528,7 @@ ul li ul.dropdown li {
     .fade-slider {
         position: relative;
         width: 100%;
-        max-width: 700px;
+        max-width: 900px;
         height: 420px;
         overflow: hidden;
         display: flex;
@@ -578,7 +579,7 @@ ul li ul.dropdown li {
     }
 
     .fade-slider img {
-        width: 650px; /* Fixed width */
+        width: 850px; /* Fixed width */
         height: 400px; /* Fixed height */
         object-fit: cover; /* Ensures images fill the box without distortion */
     
@@ -809,7 +810,7 @@ h4 {
 /* Featured Post Container */
 .featured-post {
     flex: 1;
-    min-width: 400px; /* Ensures stacking on smaller screens */
+    min-width: 380px; /* Ensures stacking on smaller screens */
     max-width: 30%; /* Ensures side-by-side layout on large screens */
     padding: 15px;
     background: #f4f4f4; 
@@ -914,10 +915,10 @@ h4 {
   .menu-post {
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 2px;
     padding: 20px;           /* Inner padding for the image to not cover the div completely */
     margin: 20px auto;       /* Space between each card and centered horizontally */
-    max-width: 400px;        /* Consistent width for the cards */
+    max-width: 380px;        /* Consistent width for the cards */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;        /* Prevent any hover effects from overflowing */
