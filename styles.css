@@ -1580,3 +1580,52 @@ h1 {
 }
 
 
+
+/* gallery */
+
+.fade-slider-container1 {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Maintains a 16:9 ratio */
+    overflow: hidden;
+}
+
+.fade-slider1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.fade-slider1 img.fade-slide1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    animation: fadeAnimation 16s infinite;
+}
+
+/* Animation delays to stagger image appearance */
+.fade-slider img.fade-slide1:nth-child(1) {
+    animation-delay: 0s;
+}
+.fade-slider img.fade-slide1:nth-child(2) {
+    animation-delay: 4s;
+}
+.fade-slider img.fade-slide1:nth-child(3) {
+    animation-delay: 8s;
+}
+.fade-slider img.fade-slide1:nth-child(4) {
+    animation-delay: 12s;
+}
+
+/* Fade animation keyframes */
+@keyframes fadeAnimation {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    25% { opacity: 1; }
+    30% { opacity: 0; }
+    100% { opacity: 0; }
+}
