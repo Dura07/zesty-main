@@ -583,7 +583,7 @@ ul li ul.dropdown li {
 
     .fade-slider img {
         width: 100%; /* Full width for small screens */
-        max-width: 510px; /* Prevents excessive image scaling */
+        max-width: 500px; /* Prevents excessive image scaling */
         height: 450px;
         
     }
