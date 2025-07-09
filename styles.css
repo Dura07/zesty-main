@@ -508,6 +508,7 @@ ul li ul.dropdown li {
     justify-content: center; /* Centers slider horizontally */
     align-items: center;     /* Centers slider vertically */
     text-align: center;
+    aspect-ratio: 16 / 9; /* Maintains a 16:9 ratio */
   
 }
 
