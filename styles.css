@@ -499,7 +499,7 @@ ul li ul.dropdown li {
 
 .fade-slider-container {
     width: 100%;
-    max-width: 1700px; /* Increased for bigger displays */
+    max-width: 1300px; /* Increased for bigger displays */
     margin: 20px auto;
     padding: 20px;
     /* padding-top: 20px; */
