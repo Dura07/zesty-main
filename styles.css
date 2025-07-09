@@ -343,7 +343,7 @@ ul li ul.dropdown li {
 
 @media (max-width: 768px) {
 
-    .body-eatery {
+    /* .body-eatery {
         height: 65vh;
         background-image: url(images/zesty\ \(4\).JPG);
         background-position: center;
@@ -352,9 +352,18 @@ ul li ul.dropdown li {
         display: flex;          
         align-items: stretch;
     
+    } */
+
+    .body-eatery {
+        position: relative;
+        height: 65vh;
+        overflow: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
-}
+
 
 
 
@@ -486,92 +495,94 @@ ul li ul.dropdown li {
 
 
 
-/* Hero section Styling */
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    padding: 30px;
-} 
+    /* Hero section Styling */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 30px;
+    } 
 
 
-.fade-slider-container {
-    width: 100%;
-    max-width: 1300px; /* Increased for bigger displays */
-    margin: 20px auto;
-    padding: 20px;
-    /* padding-top: 20px; */
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center; /* Centers slider horizontally */
-    align-items: center;     /* Centers slider vertically */
-    text-align: center;
-    aspect-ratio: 16 / 9; /* Maintains a 16:9 ratio */
-  
+    .fade-slider-container {
+        width: 100%;
+        max-width: 1300px; /* Increased for bigger displays */
+        margin: 20px auto;
+        padding: 20px;
+        /* padding-top: 20px; */
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center; /* Centers slider horizontally */
+        align-items: center;     /* Centers slider vertically */
+        text-align: center;
+        aspect-ratio: 16 / 9; /* Maintains a 16:9 ratio */
+    
+    }
+
+
+    .fade-slider {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        height: 420px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fade-slider img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        animation: fade 9s infinite;
+        border-radius: 2px;
+    }
+
+    .fade-slider img:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .fade-slider img:nth-child(2) {
+        animation-delay: 3s;
+    }
+
+    .fade-slider img:nth-child(3) {
+        animation-delay: 6s;
+    }
+
+    .fade-slider img:nth-child(4) {
+        animation-delay: 9s;
+    }
+
+    .fade-slider img:nth-child(5) {
+        animation-delay: 12s;
+    }
+
+
+    @keyframes fade {
+        0% { opacity: 0; }
+        10% { opacity: 1; }
+        30% { opacity: 1; }
+        40% { opacity: 0; }
+        100% { opacity: 0; }
+    }
+
+    .fade-slider img {
+        width: 550px; /* Fixed width */
+        height: 400px; /* Fixed height */
+        object-fit: cover; /* Ensures images fill the box without distortion */
+    
+    }
 }
 
-
-.fade-slider {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    height: 420px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.fade-slider img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    animation: fade 9s infinite;
-    border-radius: 2px;
-}
-
-.fade-slider img:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.fade-slider img:nth-child(2) {
-    animation-delay: 3s;
-}
-
-.fade-slider img:nth-child(3) {
-    animation-delay: 6s;
-}
-
-.fade-slider img:nth-child(4) {
-    animation-delay: 9s;
-}
-
-.fade-slider img:nth-child(5) {
-    animation-delay: 12s;
-}
-
-
-@keyframes fade {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    30% { opacity: 1; }
-    40% { opacity: 0; }
-    100% { opacity: 0; }
-}
-
-.fade-slider img {
-    width: 550px; /* Fixed width */
-    height: 400px; /* Fixed height */
-    object-fit: cover; /* Ensures images fill the box without distortion */
-   
-}
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
