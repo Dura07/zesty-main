@@ -464,7 +464,4 @@ window.onload = () => {
 
 
 
-// flappy bird clone
-
-
 
