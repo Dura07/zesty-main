@@ -815,7 +815,7 @@ h4 {
 /* Featured Post Container */
 .featured-post {
     flex: 1;
-    min-width: 360px; /* Ensures stacking on smaller screens */
+    min-width: 340px; /* Ensures stacking on smaller screens */
     max-width: 30%; /* Ensures side-by-side layout on large screens */
     padding: 15px;
     background: #f4f4f4; 
