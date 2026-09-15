@@ -1,0 +1,53 @@
+/* ==========================================
+   Page Header / Title Section (Mobile-First)
+   ========================================== */
+
+   .page-header {
+    text-align: center;
+    padding: 2.5rem 1.25rem 1.75rem;
+    margin: 0 auto 2rem;
+    max-width: 800px;
+    position: relative;
+  }
+  
+  /* Subtle accent line below header */
+  .page-header::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color, #ff6b00); /* Adjust to match your theme accent */
+    margin: 1.25rem auto 0;
+    border-radius: 2px;
+  }
+  
+  /* Main Title - Uses fluid clamping for perfect mobile-to-desktop scaling */
+  .page-header h1 {
+    font-size: clamp(1.85rem, 5vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text-heading, #1a1a1a);
+    margin: 0 0 0.5rem 0;
+    text-transform: capitalize;
+  }
+  
+  /* Subtitle / Description */
+  .page-header p {
+    font-size: clamp(0.95rem, 2.5vw, 1.125rem);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-muted, #666666);
+    margin: 0;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Desktop Enhancements */
+  @media (min-width: 768px) {
+    .page-header {
+      padding: 3.5rem 1.5rem 2.25rem;
+      margin-bottom: 2.5rem;
+    }
+  }

@@ -1,0 +1,830 @@
+/* ==========================================================================
+   Floating Draggable Search Widget
+   ========================================================================== */
+   .floating-search-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    touch-action: none; /* Prevents mobile scroll while dragging */
+  }
+
+  /* Floating Action Button */
+  .floating-search-btn {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background:  #6d28d9;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5), 0 4px 10px rgba(0, 0, 0, 0.4);
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    user-select: none;
+  }
+
+  .floating-search-btn:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+  }
+
+  .floating-search-btn:hover {
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.7);
+  }
+
+
+
+  /* Expanded Search Card */
+  .floating-search-card {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 340px;
+    background-color: #f1f5f9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #1a1a1a;
+    border-radius: 2px;
+    padding: 0.8rem;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @keyframes popIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* Search Input Styling */
+  .floating-search-card .search-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e2e8f0; /* Clear border */
+    border-radius: 4px;
+    padding: 0.6rem 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .floating-search-card .search-input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-family: var(--font-primary);
+  }
+
+  .floating-search-card .search-input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .floating-search-card .search-clear-btn {
+    /* background: purple; */
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Search Results List */
+  .floating-search-card .search-results-dropdown {
+    margin-top: 0.5rem;
+    max-height: 280px;
+    overflow-y: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .floating-search-card .search-results-list {
+    list-style: none;
+    padding: 0.4rem 0 0 0;
+    margin: 0;
+  }
+
+  .floating-search-card .search-result-item a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: background 0.2s ease;
+  }
+
+  .floating-search-card .search-result-item a:hover {
+    background: rgba(139, 92, 246, 0.2);
+  }
+
+  .floating-search-card .result-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .floating-search-card .result-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .floating-search-card .result-category {
+    font-size: 0.7rem;
+    color: var(--accent-purple-hover);
+    text-transform: uppercase;
+  }
+
+  .floating-search-card .result-price {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #4ade80;
+  }
+
+  .floating-search-card .search-no-results {
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 480px) {
+    .floating-search-card {
+      width: 280px;
+    }
+  }
+
+
+
+
+  /* ==========================================
+   Continuous Sliding Food Showcase Section
+   ========================================== */
+
+.food-showcase {
+  padding: 4rem 1rem;
+  background: linear-gradient(180deg, #ffffff 0%, #fdfbf9 100%);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Header Container */
+.showcase-header {
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.showcase-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-color, #ff6b00);
+  background: rgba(255, 107, 0, 0.1);
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 107, 0, 0.2);
+}
+
+.showcase-title {
+  font-size: clamp(1.85rem, 5vw, 2.75rem);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #111111;
+  margin: 0.25rem 0;
+  background: linear-gradient(135deg, #111111 60%, var(--accent-color, #ff6b00));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.showcase-subtitle {
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  color: #666666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Infinite Slider Track Container */
+.slider-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  /* Soft Edge Fade Gradient Overlay */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.slider-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: continuousSlide 28s linear infinite;
+}
+
+/* Pause sliding on hover/touch so users can view details */
+.slider-wrapper:hover .slider-track {
+  animation-play-state: paused;
+}
+
+/* Single Food Slide Card */
+.slide-item {
+  width: 240px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
+}
+
+.slide-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Image Overlay Caption */
+.slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem 1rem 0.85rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  color: #ffffff;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.slide-caption h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.slide-caption span {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ff9d00;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+
+/* Order Now CTA Button Styling */
+.showcase-cta {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-order-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--accent-color, #4b0082);
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(255, 107, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-order-now:hover {
+  background: #e05d00;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 107, 0, 0.45);
+}
+
+.btn-order-now svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-order-now:hover svg {
+  transform: translateX(4px);
+}
+
+/* CSS Continuous Sliding Keyframe */
+@keyframes continuousSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate exactly half of the track width (the duplicated items) */
+    transform: translateX(calc(-50% - 0.625rem));
+  }
+}
+
+/* Responsive Scaling for Mobile Screens */
+@media (max-width: 600px) {
+  .food-showcase {
+    padding: 3rem 0.75rem;
+  }
+
+  .slide-item {
+    width: 200px;
+  }
+
+  .slide-item img {
+    height: 170px;
+  }
+
+  .btn-order-now {
+    width: 90%;
+    max-width: 320px;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+  }
+}
+
+
+
+
+/* Global Smooth Page Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal-on-scroll {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* 1. Global fix: Prevent page horizontal overflow */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+/* 2. Contain the showcase section */
+.food-showcase {
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* 3. Contain the slider track wrapper */
+.slider-wrapper {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden; /* Clips the animated track within screen bounds */
+  margin-bottom: 2.5rem;
+  /* Soft Edge Fade Gradient Overlay */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* 4. Ensure track positioning doesn't expand viewport */
+.slider-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  will-change: transform;
+  animation: continuousSlide 28s linear infinite;
+}
+
+
+
+/* ==========================================
+   About Us Section (Mobile-First Responsive)
+   ========================================== */
+
+.about-us-section {
+  padding: 4rem 1.25rem;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-us-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.word-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Badge (EAT.DRINK.ENJOY.) */
+.about-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-color, #ff6b00);
+  background: rgba(255, 107, 0, 0.08);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 107, 0, 0.2);
+  margin-bottom: 1rem;
+}
+
+/* Title (About Us) */
+.about-title {
+  font-size: clamp(2rem, 5.5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #000000;
+  margin: 0 0 1.25rem 0;
+  position: relative;
+}
+
+/* Accent Underline */
+.about-title::after {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 4px;
+  background: var(--accent-color, #4b0082);
+  border-radius: 3px;
+  margin: 0.75rem auto 0;
+  box-shadow: 0 2px 8px rgba(255, 107, 0, 0.3);
+}
+
+/* Paragraph Content */
+.about-text {
+  font-size: clamp(0.98rem, 2.2vw, 1.125rem);
+  line-height: 1.7;
+  color: #000000;
+  margin: 0 0 1rem 0;
+  max-width: 760px;
+}
+
+.about-text strong {
+  color: #111111;
+  font-weight: 700;
+}
+
+/* Feature Tag Badges Row */
+.about-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #222222;
+  background: #f8f9fa;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #eeeeee;
+}
+
+.feature-tag svg {
+  color: var(--accent-color, #4b0082);
+}
+
+/* Desktop Enhancements */
+@media (min-width: 768px) {
+  .about-us-section {
+    padding: 5.5rem 2rem;
+  }
+  
+  .about-features {
+    margin-top: 2rem;
+  }
+}
+
+
+
+
+/* ==========================================
+   FEATURED COLLECTIONS SECTION
+   ========================================== */
+
+/* Section & Container Setup */
+.featured-section {
+  padding: 4rem 1.25rem;
+  background: #fdfbf9;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  box-sizing: border-box;
+}
+
+.featured-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Section Header (Matching About Us Aesthetic) */
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ff6b00;
+  background: rgba(255, 107, 0, 0.08);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 107, 0, 0.25);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #111111;
+  margin: 0;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 4px;
+  background: #4b0082;
+  border-radius: 10px;
+  margin: 0.75rem auto 0;
+  box-shadow: 0 2px 8px rgba(255, 107, 0, 0.3);
+}
+
+
+
+/* ==========================================
+   CONTINUOUS TICKER BANNER (LEFT TO RIGHT)
+   ========================================== */
+
+/* Outer Clip Container */
+.ticker-wrapper {
+  width: 100%;
+  max-width: 480px; 
+  margin: 1.25rem auto 2rem auto;
+  overflow: hidden; 
+  background: rgba(255, 107, 0, 0.08);
+  border: 1px solid rgba(255, 107, 0, 0.25);
+  border-radius: 20px;
+  padding: 0.5rem 0;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Moving Track */
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: max-content;
+  will-change: transform;
+  /* Left to Right Infinite Animation */
+  animation: tickerSlideLeftToRight 12s linear infinite;
+}
+
+.ticker-track span {
+  font-size: 0.825rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #ff6b00;
+  text-transform: uppercase;
+}
+
+.ticker-dot {
+  font-size: 0.6rem !important;
+  opacity: 0.6;
+}
+
+/* Keyframe Animation: Left to Right */
+@keyframes tickerSlideLeftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Pause animation on touch or mouse hover */
+.ticker-wrapper:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* Tablet & Desktop sizing */
+@media (min-width: 600px) {
+  .ticker-wrapper {
+    max-width: 600px;
+  }
+}
+
+/* ==========================================
+   FEATURED GRID & CARDS (MOBILE FIRST)
+   ========================================== */
+
+/* Mobile Default: Stacked in 1 column and centered on the page */
+.featured-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 480px; /* Limits width on mobile for clean centering */
+  margin: 0 auto;  /* Centers the entire stack horizontally */
+}
+
+/* Card Container */
+.featured-post {
+  position: relative;
+  width: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured-post a,
+.featured-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+/* Image Wrapper & Overlay */
+.featured-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: #111111;
+}
+
+.featured-image-wrapper img,
+.featured-post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
+}
+
+/* Card Content Overlay */
+.featured-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  z-index: 2;
+  color: #ffffff;
+}
+
+.featured-post h3,
+.featured-content h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.4rem 0.85rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.explore-btn svg {
+  transition: transform 0.3s ease;
+}
+
+/* ==========================================
+   HOVER & TOUCH STATES
+   ========================================== */
+
+.featured-post:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(255, 107, 0, 0.12);
+}
+
+.featured-post:hover .featured-image-wrapper img,
+.featured-post:hover img {
+  transform: scale(1.08);
+}
+
+.featured-post:hover .explore-btn {
+  background: #ff6b00;
+  border-color: #ff6b00;
+  color: #ffffff;
+}
+
+.featured-post:hover .explore-btn svg {
+  transform: translateX(3px);
+}
+
+/* ==========================================
+   RESPONSIVE BREAKPOINTS (TABLET & DESKTOP)
+   ========================================== */
+
+/* Tablets: Expand to 2 Columns */
+@media (min-width: 600px) {
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    gap: 1.5rem;
+  }
+}
+
+/* Laptops & Desktops: Expand to 3 Columns */
+@media (min-width: 992px) {
+  .featured-section {
+    padding: 5.5rem 2rem;
+  }
+
+  .featured-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+
+  .featured-image-wrapper {
+    height: 250px;
+  }
+}
