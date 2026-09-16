@@ -263,7 +263,7 @@
 
 .slide-item img {
   width: 100%;
-  height: 120px;
+  height: 100px;
   object-fit: cover;
   display: block;
 }
@@ -490,11 +490,13 @@ html, body {
 
 /* Paragraph Content */
 .about-text {
-  font-size: clamp(0.98rem, 2.2vw, 1.125rem);
-  line-height: 1.7;
+  font-size: clamp(0.94rem, 2.2vw, 1.125rem);
+  line-height: 1.5;
   color: #000000;
   margin: 0 0 1rem 0;
   max-width: 760px;
+  text-align: justify;
+  
 }
 
 .about-text strong {
